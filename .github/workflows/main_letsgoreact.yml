@@ -61,5 +61,5 @@ jobs:
         with:
           app-name: 'letsGoReact'
           slot-name: 'Production'
-          package: .
+          package: './build'
           
