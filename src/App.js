@@ -1,5 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
+import Marketing from './Components/Marketing';
+
+
 
 function App() {
   return (
@@ -9,6 +12,7 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
+        <h1>Hello World</h1>
         <a
           className="App-link"
           href="https://reactjs.org"
@@ -18,6 +22,7 @@ function App() {
           Hello World
         </a>
       </header>
+      <Marketing/>
     </div>
   );
 }
