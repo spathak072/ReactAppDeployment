@@ -2,37 +2,16 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-// Mock the Marketing component
-jest.mock('./Components/Marketing', () => () => <div data-testid="marketing-component" />);
+// Mock child components
+jest.mock('./Components/Header', () => () => <div data-testid="header">Header</div>);
+jest.mock('./Components/Marketing', () => () => <div data-testid="marketing">Marketing</div>);
 
-describe('App component', () => {
-    test('renders logo image', () => {
+describe('App', () => {
+    test('renders Header and Marketing components', () => {
         render(<App />);
-        const logoImg = screen.getByAltText(/logo/i);
-        expect(logoImg).toBeInTheDocument();
+        expect(screen.getByTestId('header')).toBeInTheDocument();
+        expect(screen.getByTestId('marketing')).toBeInTheDocument();
     });
 
-    test('renders edit instruction', () => {
-        render(<App />);
-        expect(screen.getByText(/and save to reload\./i)).toBeInTheDocument();
-    });
 
-    test('renders Hello World heading', () => {
-        render(<App />);
-        expect(screen.getByRole('heading', { name: /Hello World !!!!!!!!!!!/i })).toBeInTheDocument();
-    });
-
-    test('renders link to ReactJS.org', () => {
-        render(<App />);
-        const link = screen.getByRole('link', { name: /Hello World Test 123/i });
-        expect(link).toBeInTheDocument();
-        expect(link).toHaveAttribute('href', 'https://reactjs.org');
-        expect(link).toHaveAttribute('target', '_blank');
-        expect(link).toHaveAttribute('rel', 'noopener noreferrer');
-    });
-
-    test('renders Marketing component', () => {
-        render(<App />);
-        expect(screen.getByTestId('marketing-component')).toBeInTheDocument();
-    });
 });
