@@ -17,6 +17,8 @@
     "build": "craco build",
     "test": "craco test",
     "eject": "react-scripts eject",
+    "docker-build": "docker build -t reactappcontainer .",
+    "docker-run": "docker run -p 3000:80 reactappcontainer",
     "build:dockerImage": "docker buildx build   --platform linux/amd64                -t reactazurecontainer.azurecr.io/reactdeploymentapp:latest .",
     "pushDockerImage": "docker push reactazurecontainer.azurecr.io/reactdeploymentapp:latest"
   },

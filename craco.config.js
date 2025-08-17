@@ -11,13 +11,14 @@ module.exports = {
       if (env === "production") {
         webpackConfig.output.path = paths.appBuild;
       }
+      console.log("Webpack configuration:", env);
 
       webpackConfig.plugins = [
         ...webpackConfig.plugins,
         new ModuleFederationPlugin({
           name: "reactAppContainer",
           remotes: {
-            marketingMF: "mfMarketing@http://localhost:3001/remoteEntry.js",
+            marketingMF: env==="development"?"mfMarketing@http://localhost:3001/remoteEntry.js":"mfMarketing@https://reactappmf2-hdcudkgxh8d5acdj.malaysiawest-01.azurewebsites.net/remoteEntry.js",
           },
           shared: dependencies,
         }),
