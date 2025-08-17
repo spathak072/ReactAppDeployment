@@ -1,0 +1,7 @@
+.toolbar{
+   display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    height: 64px; /* Default height for MUI AppBar */
+}
